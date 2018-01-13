@@ -2,3 +2,7 @@
 	path = makestuff
 	url = https://github.com/dushoff/makestuff.git
 	branch = master
+[submodule "assign"]
+	path = assign
+	url = https://github.com/Bio3SS/Assignments
+	branch = master
