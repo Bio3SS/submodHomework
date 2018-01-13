@@ -89,6 +89,8 @@ expl.asn.pdf: assign/expl.ques
 
 ## lect directory
 
+Ignore += lect/
+
 lect/%: 
 	$(MAKE) lect
 
