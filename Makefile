@@ -18,7 +18,7 @@ Sources += Makefile .ignore README.md substuff.mk LICENSE.md
 Drop = ~/Dropbox
 
 -include substuff.mk
-# -include $(ms)/perl.def
+-include $(ms)/perl.def
 # -include $(ms)/newtalk.def
 # -include $(ms)/repos.def
 
@@ -26,21 +26,16 @@ Drop = ~/Dropbox
 
 ## Directories
 
-# clonedirs += clone
-clone:
-	git clone https://github.com/Bio3SS/$@.git
+clonedirs += web
+web:
+	git clone https://github.com/Bio3SS/Bio3SS.github.io.git $@
 
 ## A private directory with assignment and test content
-specdirs += assign
+mdirs += assign
 assign:
 	git submodule add -b master https://github.com/Bio3SS/Assignments $@
 
-# pushdir = web/materials
-
-## repodirs have auto-making rules from modules.mk
-## mdirs are used by recursive git rules
-repodirs += $(specdirs)
-mdirs = $(specdirs)
+pushdir = web/materials
 
 ######################################################################
 
@@ -53,9 +48,10 @@ Sources += $(wildcard *.asn)
 ## Intro (NFC)
 intro.asn.pdf: assign/intro.ques
 
-intro.asn.tex:
+intro.asn.tex: assign/intro.ques
 
-## 
+#########
+## Not yet made here
 
 ## Population growth
 pg.asn.pdf: assign/pg.ques
@@ -87,10 +83,9 @@ expl.asn.pdf: assign/expl.ques
 
 ######################################################################
 
-## lect directory
+## lect and talk resources
 
-Ignore += lect/
-
+Ignore += lect
 lect/%: 
 	$(MAKE) lect
 
@@ -98,15 +93,25 @@ lect: dir=makestuff
 lect:
 	$(linkdir)
 
+Ignore += talk
+talk/%: 
+	$(MAKE) talk
+
+talk: dir=makestuff/newtalk
+talk:
+	$(linkdirname)
+
 ######################################################################
 
 ## knitr 
 
 ## Pre-knit markup
+Ignore += *.ques
 %.ques: assign/%.ques lect/knit.fmt talk/lect.pl
 	$(PUSH)
 
 ## Knit
+Ignore += *.qq
 knit = echo 'knitr::knit("$<", "$@")' | R --vanilla
 %.qq: %.ques
 	$(knit)
