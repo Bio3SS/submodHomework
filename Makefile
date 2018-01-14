@@ -8,6 +8,11 @@ current: target
 target = Makefile
 -include target.mk
 
+test:
+	@echo $(mdirs)
+	@echo caaaa
+	@echo $(clonedirs)
+
 ###################################################################
 
 # stuff
