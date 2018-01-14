@@ -8,11 +8,6 @@ current: target
 target = Makefile
 -include target.mk
 
-test:
-	@echo $(mdirs)
-	@echo caaaa
-	@echo $(clonedirs)
-
 ###################################################################
 
 # stuff
@@ -49,6 +44,7 @@ pushdir = web/materials
 ## Assignments
 
 Sources += $(wildcard *.asn)
+Ignore += *.asn.*
 
 ## Intro (NFC)
 intro.asn.pdf: assign/intro.ques
