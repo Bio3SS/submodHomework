@@ -1,5 +1,8 @@
 # Homework
 
+## HELP! This make file is deleting lecture stuff from makestuff
+## Added a .PRECIOUS in the talk: section. Fixed?
+
 ######################################################################
 
 ## Hooks
@@ -48,8 +51,7 @@ Ignore += *.asn.*
 
 ## Intro (NFC)
 intro.asn.pdf: assign/intro.ques
-
-intro.asn.tex: assign/intro.ques
+intro.key.pdf: assign/intro.ques
 
 #########
 ## Not yet made here
@@ -95,6 +97,7 @@ lect:
 	$(linkdir)
 
 Ignore += talk
+.PRECIOUS: talk/%
 talk/%: 
 	$(MAKE) talk
 
