@@ -58,6 +58,8 @@ intro.key.pdf: assign/intro.ques
 
 ## Population growth
 pg.asn.pdf: assign/pg.ques
+pg.key.pdf: assign/pg.ques
+pg.rub.pdf: assign/pg.ques
 
 ## Intro R (NFC, lives on wiki)
 
