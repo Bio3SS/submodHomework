@@ -47,7 +47,7 @@ pushdir = web/materials
 ## Assignments
 
 Sources += $(wildcard *.asn)
-Ignore += *.asn.*
+Ignore += *.asn.* *.key.* *.rub.*
 
 ## Intro (NFC)
 intro.asn.pdf: assign/intro.ques
