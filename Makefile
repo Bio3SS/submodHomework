@@ -53,11 +53,12 @@ Ignore += *.asn.*
 intro.asn.pdf: assign/intro.ques
 intro.key.pdf: assign/intro.ques
 
-#########
-## Not yet made here
-
 ## Population growth
 pg.asn.pdf: assign/pg.ques
+pg.key.pdf: assign/pg.ques
+
+#########
+## Not yet made here
 
 ## Intro R (NFC, lives on wiki)
 
