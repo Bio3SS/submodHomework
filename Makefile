@@ -53,15 +53,16 @@ Ignore += *.asn.* *.key.* *.rub.*
 intro.asn.pdf: assign/intro.ques
 intro.key.pdf: assign/intro.ques
 
-#########
-## Not yet made here
-
 ## Population growth
 pg.asn.pdf: assign/pg.ques
 pg.key.pdf: assign/pg.ques
 pg.rub.pdf: assign/pg.ques
 
 ## Intro R (NFC, lives on wiki)
+
+######################################################################
+
+## Not yet made here
 
 ## Regulation (uses some R, lives here, points to wiki)
 regulation.asn.pdf: assign/regulation.ques
