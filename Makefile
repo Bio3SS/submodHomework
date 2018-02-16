@@ -42,6 +42,8 @@ pushdir = web/materials
 
 repodirs += assign
 
+Sources += $(mdirs)
+
 ######################################################################
 
 ## Content
