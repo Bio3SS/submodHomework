@@ -40,6 +40,8 @@ assign:
 
 pushdir = web/materials
 
+repodirs += assign
+
 ######################################################################
 
 ## Content
@@ -54,20 +56,22 @@ intro.asn.pdf: assign/intro.ques
 intro.key.pdf: assign/intro.ques
 
 ## Population growth
+## For-credit 2018
 pg.asn.pdf: assign/pg.ques
 pg.key.pdf: assign/pg.ques
 pg.rub.pdf: assign/pg.ques
 
 ## Intro R (NFC, lives on wiki)
 
-######################################################################
-
-## Not yet made here
-
+## For-credit 2018
 ## Regulation (uses some R, lives here, points to wiki)
 regulation.asn.pdf: assign/regulation.ques
 regulation.key.pdf: assign/regulation.ques
 regulation.rub.pdf: assign/regulation.ques
+
+######################################################################
+
+## Not yet made here
 
 ## An allee question that has fallen between the cracks. Could be added to the previous or following assignment
 ## Previous assignment currently has a detailed Allee question, though.
