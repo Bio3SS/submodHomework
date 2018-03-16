@@ -1,8 +1,5 @@
 # Homework
 
-## HELP! This make file is deleting lecture stuff from makestuff
-## Added a .PRECIOUS in the talk: section. Fixed?
-
 ######################################################################
 
 ## Hooks
@@ -23,7 +20,7 @@ Drop = ~/Dropbox
 -include substuff.mk
 -include $(ms)/perl.def
 # -include $(ms)/newtalk.def
-# -include $(ms)/repos.def
+-include $(ms)/repos.def
 
 ######################################################################
 
@@ -34,7 +31,7 @@ web:
 	git clone https://github.com/Bio3SS/Bio3SS.github.io.git $@
 
 ## A private directory with assignment and test content
-mdirs += assign
+dirs += assign
 assign:
 	git submodule add -b master https://github.com/Bio3SS/Assignments $@
 

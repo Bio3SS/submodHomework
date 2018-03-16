@@ -6,3 +6,6 @@
 	path = assign
 	url = https://github.com/Bio3SS/Assignments
 	branch = master
+[submodule "Life_tables"]
+	path = Life_tables
+	url = https://github.com/Bio3SS/Life_tables.git
