@@ -68,10 +68,6 @@ regulation.asn.pdf: assign/regulation.ques
 regulation.key.pdf: assign/regulation.ques
 regulation.rub.pdf: assign/regulation.ques
 
-######################################################################
-
-## Not yet made here
-
 ## An allee question that has fallen between the cracks. Could be added to the previous or following assignment
 ## Previous assignment currently has a detailed Allee question, though.
 allee.asn.pdf: assign/allee.ques
@@ -81,6 +77,10 @@ allee.asn.pdf: assign/allee.ques
 structure.asn.pdf: assign/structure.ques
 structure.key.pdf: assign/structure.ques
 structure.rub.pdf: assign/structure.ques
+
+######################################################################
+
+## Not yet made here
 
 ## Interaction is an old assignment, now broken up into a very short (life history) assignment and a slightly longer (competition) assignment
 interaction.asn.pdf: assign/interaction.ques
