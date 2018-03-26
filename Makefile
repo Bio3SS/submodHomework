@@ -73,7 +73,7 @@ regulation.rub.pdf: assign/regulation.ques
 allee.asn.pdf: assign/allee.ques
 
 ## Structure assignment
-## Often given for credit
+## Assigned 2018
 structure.asn.pdf: assign/structure.ques
 structure.key.pdf: assign/structure.ques
 structure.rub.pdf: assign/structure.ques
@@ -83,6 +83,7 @@ structure.rub.pdf: assign/structure.ques
 ## Not yet made here
 
 ## Interaction is an old assignment, now broken up into a very short (life history) assignment and a slightly longer (competition) assignment
+## Now just misnamed life history (NFC 2018)
 interaction.asn.pdf: assign/interaction.ques
 
 competition.asn.pdf: assign/competition.ques
