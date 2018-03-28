@@ -85,6 +85,7 @@ structure.rub.pdf: assign/structure.ques
 ## Interaction is an old assignment, now broken up into a very short (life history) assignment and a slightly longer (competition) assignment
 ## Now just misnamed life history (NFC 2018)
 interaction.asn.pdf: assign/interaction.ques
+interaction.key.pdf: assign/interaction.ques
 
 competition.asn.pdf: assign/competition.ques
 competition.key.pdf: assign/competition.ques
