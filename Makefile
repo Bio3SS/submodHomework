@@ -39,7 +39,7 @@ pushdir = web/materials
 
 repodirs += assign Life_tables
 
-Sources += $(mdirs)
+Sources += $(mdirs) $(repodirs)
 
 ######################################################################
 
