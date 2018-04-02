@@ -47,6 +47,10 @@ Sources += $(mdirs)
 
 ## Assignments
 
+Sources += $(wildcard *.asn)
+Ignore += *.asn.* *.key.* *.rub.*
+
+## Intro (NFC)
 intro.asn.pdf: assign/intro.ques
 intro.key.pdf: assign/intro.ques
 
