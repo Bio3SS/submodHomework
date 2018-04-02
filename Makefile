@@ -89,6 +89,7 @@ interaction.key.pdf: assign/interaction.ques
 
 competition.asn.pdf: assign/competition.ques
 competition.key.pdf: assign/competition.ques
+competition.rub.pdf: assign/competition.ques
 
 expl.asn.pdf: assign/expl.ques
 
