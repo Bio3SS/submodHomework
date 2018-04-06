@@ -73,7 +73,7 @@ regulation.rub.pdf: assign/regulation.ques
 allee.asn.pdf: assign/allee.ques
 
 ## Structure assignment
-## Assigned 2018
+## For-credit 2018
 structure.asn.pdf: assign/structure.ques
 structure.key.pdf: assign/structure.ques
 structure.rub.pdf: assign/structure.ques
@@ -87,6 +87,7 @@ structure.rub.pdf: assign/structure.ques
 interaction.asn.pdf: assign/interaction.ques
 interaction.key.pdf: assign/interaction.ques
 
+## For-credit 2018
 competition.asn.pdf: assign/competition.ques
 competition.key.pdf: assign/competition.ques
 competition.rub.pdf: assign/competition.ques
