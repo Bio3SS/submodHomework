@@ -30,6 +30,8 @@ clonedirs += web
 web:
 	git clone https://github.com/Bio3SS/Bio3SS.github.io.git $@
 
+## Life_tables dropped 2018 Nov 27 (Tue)
+
 ## A private directory with assignment and test content
 dirs += assign
 assign:
