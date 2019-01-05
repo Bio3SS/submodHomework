@@ -1,4 +1,5 @@
 # Homework
+## Public machinery for homework (split out of Tests, uses info in assign)
 
 ######################################################################
 
@@ -12,15 +13,20 @@ target = Makefile
 
 # stuff
 
-Sources += Makefile .ignore README.md substuff.mk LICENSE.md
+Sources += Makefile README.md LICENSE.md
 
-## Change Drop with untracked local.mk (called automatically from substuff.mk)
-Drop = ~/Dropbox
+ms = makestuff
+Sources += $(ms)
+Makefile: $(ms)/Makefile
 
--include substuff.mk
+$(ms)/%.mk: $(ms)/Makefile ;
+$(ms)/Makefile:
+	git submodule update -i
+
+-include $(ms)/os.mk
+
 -include $(ms)/perl.def
-# -include $(ms)/newtalk.def
--include $(ms)/repos.def
+## -include $(ms)/repos.def
 
 ######################################################################
 
@@ -33,7 +39,7 @@ dirs += assign
 assign:
 	git submodule add -b master https://github.com/Bio3SS/Assignments $@
 
-pushdir = web/materials
+pushdir = ../web/materials
 
 repodirs += assign
 
