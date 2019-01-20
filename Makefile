@@ -99,6 +99,7 @@ expl.asn.pdf: material/expl.ques
 ## lect and talk resources
 
 Ignore += lect
+.PRECIOUS: lect/%
 lect/%: 
 	$(MAKE) lect
 
