@@ -1,5 +1,5 @@
 # Homework
-## Public machinery for homework (split out of Tests, uses info in assign)
+## Public machinery for homework (split out of Tests, uses info in material)
 
 ######################################################################
 
@@ -35,15 +35,11 @@ $(ms)/Makefile:
 ## Life_tables dropped 2018 Nov 27 (Tue)
 
 ## A private directory with assignment and test content
-dirs += assign
-assign:
-	git submodule add -b master https://github.com/Bio3SS/Assignments $@
+mdirs += material
+material:
+	git submodule add -b master https://github.com/Bio3SS/Evaluation_materials $@
 
 pushdir = ../web/materials
-
-repodirs += assign
-
-Sources += $(mdirs) $(repodirs)
 
 ######################################################################
 
@@ -55,54 +51,55 @@ Sources += $(wildcard *.asn)
 Ignore += *.asn.* *.key.* *.rub.*
 
 ## Intro (NFC)
-intro.asn.pdf: assign/intro.ques
-intro.key.pdf: assign/intro.ques
+intro.asn.pdf: material/intro.ques
+intro.key.pdf: material/intro.ques
 
 ## Population growth
 ## For-credit 2018, 2019
-pg.asn.pdf: assign/pg.ques
-pg.key.pdf: assign/pg.ques
-pg.rub.pdf: assign/pg.ques
+pg.asn.pdf: material/pg.ques
+pg.key.pdf: material/pg.ques
+pg.rub.pdf: material/pg.ques
 
 ## Intro R (NFC, lives on wiki)
 
 ## For-credit 2018
 ## Regulation (uses some R, lives here, points to wiki)
-regulation.asn.pdf: assign/regulation.ques
-regulation.key.pdf: assign/regulation.ques
-regulation.rub.pdf: assign/regulation.ques
+regulation.asn.pdf: material/regulation.ques
+regulation.key.pdf: material/regulation.ques
+regulation.rub.pdf: material/regulation.ques
 
-## An allee question that has fallen between the cracks. Could be added to the previous or following assignment
-## Previous assignment currently has a detailed Allee question, though.
-allee.asn.pdf: assign/allee.ques
+## An allee question that has fallen between the cracks. Could be added to the previous or following materialment
+## Previous materialment currently has a detailed Allee question, though.
+allee.asn.pdf: material/allee.ques
 
-## Structure assignment
+## Structure materialment
 ## For-credit 2018
-structure.asn.pdf: assign/structure.ques
-structure.key.pdf: assign/structure.ques
-structure.rub.pdf: assign/structure.ques
+structure.asn.pdf: material/structure.ques
+structure.key.pdf: material/structure.ques
+structure.rub.pdf: material/structure.ques
 
 ######################################################################
 
 ## Not yet made here
 
-## Interaction is an old assignment, now broken up into a very short (life history) assignment and a slightly longer (competition) assignment
+## Interaction is an old materialment, now broken up into a very short (life history) assignment and a slightly longer (competition) assignment
 ## Now just misnamed life history (NFC 2018)
-interaction.asn.pdf: assign/interaction.ques
-interaction.key.pdf: assign/interaction.ques
+interaction.asn.pdf: material/interaction.ques
+interaction.key.pdf: material/interaction.ques
 
 ## For-credit 2018
-competition.asn.pdf: assign/competition.ques
-competition.key.pdf: assign/competition.ques
-competition.rub.pdf: assign/competition.ques
+competition.asn.pdf: material/competition.ques
+competition.key.pdf: material/competition.ques
+competition.rub.pdf: material/competition.ques
 
-expl.asn.pdf: assign/expl.ques
+expl.asn.pdf: material/expl.ques
 
 ######################################################################
 
 ## lect and talk resources
 
 Ignore += lect
+.PRECIOUS: lect/%
 lect/%: 
 	$(MAKE) lect
 
@@ -125,7 +122,7 @@ talk:
 
 ## Pre-knit markup
 Ignore += *.ques
-%.ques: assign/%.ques lect/knit.fmt talk/lect.pl
+%.ques: material/%.ques lect/knit.fmt talk/lect.pl
 	$(PUSH)
 
 ## Knit
@@ -143,9 +140,6 @@ Sources += asn.tmp copy.tex
 	$(PUSHSTAR)
 
 %.asn.tex: %.qq asn.tmp asn.ques.fmt talk/lect.pl
-	$(PUSH)
-
-%.old.asn.tex: assign/%.ques asn.tmp asn.ques.fmt talk/lect.pl
 	$(PUSH)
 
 %.key.tex: %.qq asn.tmp key.ques.fmt talk/lect.pl
