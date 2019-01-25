@@ -59,7 +59,7 @@ intro.asn.pdf: assign/intro.ques
 intro.key.pdf: assign/intro.ques
 
 ## Population growth
-## For-credit 2018
+## For-credit 2018, 2019
 pg.asn.pdf: assign/pg.ques
 pg.key.pdf: assign/pg.ques
 pg.rub.pdf: assign/pg.ques
