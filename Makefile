@@ -62,6 +62,8 @@ pg.rub.pdf: material/pg.ques
 
 ## Intro R (NFC, lives on wiki)
 
+### ADD point outline to future HWs!
+
 ## For-credit 2018
 ## Regulation (uses some R, lives here, points to wiki)
 regulation.asn.pdf: material/regulation.ques
