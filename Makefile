@@ -62,6 +62,10 @@ pg.rub.pdf: material/pg.ques
 
 ## Intro R (NFC, lives on wiki)
 
+Sources += $(wildcard *.rmd)
+intro.rmd: Makefile
+	pandoc -f mediawiki -t markdown -o $@ intro.mw
+
 ### ADD point outline to future HWs!
 
 ## For-credit 2018
@@ -70,11 +74,11 @@ regulation.asn.pdf: material/regulation.ques
 regulation.key.pdf: material/regulation.ques
 regulation.rub.pdf: material/regulation.ques
 
-## An allee question that has fallen between the cracks. Could be added to the previous or following materialment
-## Previous materialment currently has a detailed Allee question, though.
+## An allee question that has fallen between the cracks. Could be added to the previous or following assignment
+## Previous assignment currently has a detailed Allee question, though.
 allee.asn.pdf: material/allee.ques
 
-## Structure materialment
+## Structure assignment
 ## For-credit 2018
 structure.asn.pdf: material/structure.ques
 structure.key.pdf: material/structure.ques
@@ -84,7 +88,7 @@ structure.rub.pdf: material/structure.ques
 
 ## Not yet made here
 
-## Interaction is an old materialment, now broken up into a very short (life history) assignment and a slightly longer (competition) assignment
+## Interaction is an old assignment, now broken up into a very short (life history) assignment and a slightly longer (competition) assignment
 ## Now just misnamed life history (NFC 2018)
 interaction.asn.pdf: material/interaction.ques
 interaction.key.pdf: material/interaction.ques
