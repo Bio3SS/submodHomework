@@ -60,11 +60,32 @@ pg.asn.pdf: material/pg.ques
 pg.key.pdf: material/pg.ques
 pg.rub.pdf: material/pg.ques
 
-## Intro R (NFC, lives on wiki)
+## Intro R (NFC, moving from wiki)
 
-Sources += $(wildcard *.rmd)
-intro.rmd: Makefile
-	pandoc -f mediawiki -t markdown -o $@ intro.mw
+## /bin/cp -rf r.md r_files ../web/materials
+
+######################################################################
+
+## rmd pipelining (much to be done!)
+
+## Direct translation
+%.rmd.md: %.rmd
+	Rscript -e 'library("rmarkdown"); render("$<", output_format="md_document", output_file="$@")'
+
+## Add headers
+# r.export.md: r.rmd
+%.yaml.md: %.rmd Makefile
+	perl -nE "last if /^$$/; print; END{say}" $< > $@
+
+%.export.md: %.yaml.md %.rmd.md
+	$(cat)
+
+## r.rmdout: r.rmd
+%.rmdout: %.export.md
+	- $(RMR) $(pushdir)/$*.rmd_files
+	$(CP) -r $< $*.rmd_files $(pushdir)
+
+######################################################################
 
 ### ADD point outline to future HWs!
 
@@ -159,6 +180,7 @@ Sources += asn.tmp copy.tex
 -include $(ms)/visual.mk
 -include $(ms)/git.mk
 -include $(ms)/texdeps.mk
+-include $(ms)/pandoc.mk
 
 # -include $(ms)/newtalk.mk
 
