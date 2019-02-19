@@ -73,17 +73,23 @@ pg.rub.pdf: material/pg.ques
 	Rscript -e 'library("rmarkdown"); render("$<", output_format="md_document", output_file="$@")'
 
 ## Add headers
-# r.export.md: r.rmd
 %.yaml.md: %.rmd Makefile
 	perl -nE "last if /^$$/; print; END{say}" $< > $@
 
 %.export.md: %.yaml.md %.rmd.md
 	$(cat)
 
-## r.rmdout: r.rmd
 %.rmdout: %.export.md
 	- $(RMR) $(pushdir)/$*.rmd_files
-	$(CP) -r $< $*.rmd_files $(pushdir)
+	$(CP) -r $< $(pushdir)
+	- $(CP) -r $< $*.rmd_files $(pushdir)
+
+rmd = $(wildcard *.rmd)
+shiprmd = $(rmd:rmd=rmdout)
+shiprmd: $(shiprmd)
+## bd.rmdout: bd.rmd
+# bd.export.gh.html: bd.rmd
+# r.export.gh.html: 
 
 ######################################################################
 
