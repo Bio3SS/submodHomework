@@ -60,8 +60,6 @@ pg.asn.pdf: material/pg.ques
 pg.key.pdf: material/pg.ques
 pg.rub.pdf: material/pg.ques
 
-## Intro R (NFC, moving from wiki)
-
 ######################################################################
 
 ## rmd pipelining (much to be done!)
@@ -90,8 +88,11 @@ Ignore += *.export.* *_files/
 shiprmd = $(rmd:rmd=rmdout)
 shiprmd: $(shiprmd)
 ## bd.rmdout: bd.rmd
+
+## Intro R (NFC, moved from wiki)
+## This doesn't link perfectly here. shiprmd to send it to it's native home
+# r.export.gh.html: r.rmd
 # bd.export.gh.html: bd.rmd
-# r.export.gh.html: 
 
 ######################################################################
 
