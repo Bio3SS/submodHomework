@@ -62,8 +62,6 @@ pg.rub.pdf: material/pg.ques
 
 ## Intro R (NFC, moving from wiki)
 
-## /bin/cp -rf r.md r_files ../web/materials
-
 ######################################################################
 
 ## rmd pipelining (much to be done!)
