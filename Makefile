@@ -69,8 +69,9 @@ pg.rub.pdf: material/pg.ques
 ## rmd pipelining (much to be done!)
 
 rmd = $(wildcard *.rmd)
-Ignore += %.yaml.md *.rmd.md %.export.md
+Ignore += *.yaml.md *.rmd.md *.export.md
 Sources += $(rmd)
+Ignore += *.export.* *_files/
 
 ## Direct translation
 %.rmd.md: %.rmd
