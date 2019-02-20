@@ -68,6 +68,8 @@ pg.rub.pdf: material/pg.ques
 
 ## rmd pipelining (much to be done!)
 
+Ignore += %.yaml.md *.rmd.md %.export.md
+
 ## Direct translation
 %.rmd.md: %.rmd
 	Rscript -e 'library("rmarkdown"); render("$<", output_format="md_document", output_file="$@")'
