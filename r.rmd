@@ -63,7 +63,7 @@ The function {#the_function}
 To load `bd`, type:
 
 ```{r}
-source("https://raw.githubusercontent.com/Bio3SS/Birth_death_models/master/bd.R") 
+source("https://raw.githubusercontent.com/Bio3SS/Exponential_figures/master/bd.R") 
 ```
 
 This should work if you are connected to the internet. `source` is a
