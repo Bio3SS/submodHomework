@@ -62,32 +62,6 @@ pg.rub.pdf: material/pg.ques
 
 ######################################################################
 
-## rmd pipelining (much to be done!)
-
-rmd = $(wildcard *.rmd)
-Ignore += *.yaml.md *.rmd.md *.export.md
-Sources += $(rmd)
-Ignore += *.export.* *_files/
-
-## Direct translation
-%.rmd.md: %.rmd
-	Rscript -e 'library("rmarkdown"); render("$<", output_format="md_document", output_file="$@")'
-
-## Add headers
-%.yaml.md: %.rmd Makefile
-	perl -nE "last if /^$$/; print; END{say}" $< > $@
-
-%.export.md: %.yaml.md %.rmd.md
-	$(cat)
-
-%.rmdout: %.export.md
-	- $(RMR) $(pushdir)/$*.rmd_files
-	$(CP) -r $< $(pushdir)
-	- $(CP) -r $< $*.rmd_files $(pushdir)
-
-shiprmd = $(rmd:rmd=rmdout)
-shiprmd: $(shiprmd)
-## bd.rmdout: bd.rmd
 
 ## Intro R (NFC, moved from wiki)
 ## This doesn't link perfectly here. shiprmd to send it to it's native home
@@ -154,6 +128,34 @@ talk:
 
 ######################################################################
 
+## rmd pipelining (much to be done!)
+
+rmd = $(wildcard *.rmd)
+Ignore += *.yaml.md *.rmd.md *.export.md
+Sources += $(rmd)
+Ignore += *.export.* *_files/
+
+## Direct translation
+%.rmd.md: %.rmd
+	Rscript -e 'library("rmarkdown"); render("$<", output_format="md_document", output_file="$@")'
+
+## Add headers
+%.yaml.md: %.rmd Makefile
+	perl -nE "last if /^$$/; print; END{say}" $< > $@
+
+%.export.md: %.yaml.md %.rmd.md
+	$(cat)
+
+%.rmdout: %.export.md
+	- $(RMR) $(pushdir)/$*.rmd_files
+	$(CP) -r $< $(pushdir)
+	- $(CP) -r $< $*.rmd_files $(pushdir)
+
+shiprmd = $(rmd:rmd=rmdout)
+shiprmd: $(shiprmd)
+## bd.rmdout: bd.rmd
+
+######################################################################
 ## knitr 
 
 ## Pre-knit markup

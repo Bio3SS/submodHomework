@@ -1,6 +1,6 @@
 \documentclass[12pt]{article}
 \usepackage{graphicx,talk/slidecomm,talk/commands}
-\usepackage{grffile,url}
+\usepackage{grffile,hyperref}
 \newcounter{question}
 \newcounter{qpart}[question]
  
