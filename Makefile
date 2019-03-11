@@ -1,6 +1,10 @@
 # Homework
 ## Public machinery for homework (split out of Tests, uses info in material)
 
+## 2019 Mar 10 (Sun) DEPRECATE all working subdirectories; use source!
+## If kids can do it, we can do it
+## Also: working on stepR local pipelines
+
 ######################################################################
 
 ## Hooks
@@ -62,7 +66,6 @@ pg.rub.pdf: material/pg.ques
 
 ######################################################################
 
-
 ## Intro R (NFC, moved from wiki)
 ## This doesn't link perfectly here. shiprmd to send it to it's native home
 # r.export.gh.html: r.rmd
@@ -77,6 +80,20 @@ pg.rub.pdf: material/pg.ques
 regulation.asn.pdf: material/regulation.ques
 regulation.key.pdf: material/regulation.ques
 regulation.rub.pdf: material/regulation.ques
+
+## Pipelining with .R files
+## 2019 Mar 10 (Sun)
+regulation.qq: material/regulation.RData
+regulation.Rout: material/regulation.R
+	$(run-R)
+material/regulation.R: bd.R ;
+bd.R:
+	wget -O $@ "https://raw.githubusercontent.com/Bio3SS/Exponential_figures/master/bd.R" 
+
+## Definitely want to be working on stepR pipelining!
+regulation.key.pdf regulation.rub.pdf: regulation.Rout-0.pdf regulation.Rout-1.pdf regulation.Rout-2.pdf regulation.Rout-3.pdf regulation.Rout-4.pdf
+
+
 
 ## An allee question that has fallen between the cracks. Could be added to the previous or following assignment
 ## Previous assignment currently has a detailed Allee question, though.
@@ -198,5 +215,6 @@ Sources += asn.tmp copy.tex
 -include $(ms)/modules.mk
 
 # -include $(ms)/webpix.mk
-# -include $(ms)/wrapR.mk
 
+## Using wrap because step doesn't (yet) understanding hiding ☹
+-include $(ms)/wrapR.mk
