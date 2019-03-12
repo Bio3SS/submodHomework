@@ -86,6 +86,8 @@ regulation.rub.pdf: material/regulation.ques
 regulation.qq: material/regulation.RData
 regulation.Rout: material/regulation.R
 	$(run-R)
+
+Ignore += bd.R
 material/regulation.R: bd.R ;
 bd.R:
 	wget -O $@ "https://raw.githubusercontent.com/Bio3SS/Exponential_figures/master/bd.R" 
