@@ -1,6 +1,10 @@
 # Homework
 ## Public machinery for homework (split out of Tests, uses info in material)
 
+## 2019 Mar 10 (Sun) DEPRECATE all working subdirectories; use source!
+## If kids can do it, we can do it
+## Also: working on stepR local pipelines
+
 ######################################################################
 
 ## Hooks
@@ -62,33 +66,6 @@ pg.rub.pdf: material/pg.ques
 
 ######################################################################
 
-## rmd pipelining (much to be done!)
-
-rmd = $(wildcard *.rmd)
-Ignore += *.yaml.md *.rmd.md *.export.md
-Sources += $(rmd)
-Ignore += *.export.* *_files/
-
-## Direct translation
-%.rmd.md: %.rmd
-	Rscript -e 'library("rmarkdown"); render("$<", output_format="md_document", output_file="$@")'
-
-## Add headers
-%.yaml.md: %.rmd Makefile
-	perl -nE "last if /^$$/; print; END{say}" $< > $@
-
-%.export.md: %.yaml.md %.rmd.md
-	$(cat)
-
-%.rmdout: %.export.md
-	- $(RMR) $(pushdir)/$*.rmd_files
-	$(CP) -r $< $(pushdir)
-	- $(CP) -r $< $*.rmd_files $(pushdir)
-
-shiprmd = $(rmd:rmd=rmdout)
-shiprmd: $(shiprmd)
-## bd.rmdout: bd.rmd
-
 ## Intro R (NFC, moved from wiki)
 ## This doesn't link perfectly here. shiprmd to send it to it's native home
 # r.export.gh.html: r.rmd
@@ -103,6 +80,22 @@ shiprmd: $(shiprmd)
 regulation.asn.pdf: material/regulation.ques
 regulation.key.pdf: material/regulation.ques
 regulation.rub.pdf: material/regulation.ques
+
+## Pipelining with .R files
+## 2019 Mar 10 (Sun)
+regulation.qq: material/regulation.RData
+regulation.Rout: material/regulation.R
+	$(run-R)
+
+Ignore += bd.R
+material/regulation.R: bd.R ;
+bd.R:
+	wget -O $@ "https://raw.githubusercontent.com/Bio3SS/Exponential_figures/master/bd.R" 
+
+## Definitely want to be working on stepR pipelining!
+regulation.key.pdf regulation.rub.pdf: regulation.Rout-0.pdf regulation.Rout-1.pdf regulation.Rout-2.pdf regulation.Rout-3.pdf regulation.Rout-4.pdf
+
+
 
 ## An allee question that has fallen between the cracks. Could be added to the previous or following assignment
 ## Previous assignment currently has a detailed Allee question, though.
@@ -154,6 +147,34 @@ talk:
 
 ######################################################################
 
+## rmd pipelining (much to be done!)
+
+rmd = $(wildcard *.rmd)
+Ignore += *.yaml.md *.rmd.md *.export.md
+Sources += $(rmd)
+Ignore += *.export.* *_files/
+
+## Direct translation
+%.rmd.md: %.rmd
+	Rscript -e 'library("rmarkdown"); render("$<", output_format="md_document", output_file="$@")'
+
+## Add headers
+%.yaml.md: %.rmd Makefile
+	perl -nE "last if /^$$/; print; END{say}" $< > $@
+
+%.export.md: %.yaml.md %.rmd.md
+	$(cat)
+
+%.rmdout: %.export.md
+	- $(RMR) $(pushdir)/$*.rmd_files
+	$(CP) -r $< $(pushdir)
+	- $(CP) -r $< $*.rmd_files $(pushdir)
+
+shiprmd = $(rmd:rmd=rmdout)
+shiprmd: $(shiprmd)
+## bd.rmdout: bd.rmd
+
+######################################################################
 ## knitr 
 
 ## Pre-knit markup
@@ -196,5 +217,6 @@ Sources += asn.tmp copy.tex
 -include $(ms)/modules.mk
 
 # -include $(ms)/webpix.mk
-# -include $(ms)/wrapR.mk
 
+## Using wrap because step doesn't (yet) understanding hiding ☹
+-include $(ms)/wrapR.mk
