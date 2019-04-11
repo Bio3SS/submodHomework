@@ -45,6 +45,8 @@ material:
 
 pushdir = ../web/materials
 
+hotdirs += materials
+
 ######################################################################
 
 ## Content
@@ -214,7 +216,7 @@ Sources += asn.tmp copy.tex
 
 # -include $(ms)/newtalk.mk
 
--include $(ms)/modules.mk
+-include $(ms)/hotcold.mk
 
 # -include $(ms)/webpix.mk
 
